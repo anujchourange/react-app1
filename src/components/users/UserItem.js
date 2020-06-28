@@ -1,19 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export class UserItem extends Component {
-   constructor (){
-       super();
-       this.state={
-           id:'id',
-           login:'mojombo',
-           avatar_url:"https://avatars0.githubusercontent.com/u/1?v=4",
-           html_url: "https://github.com/mojombo",
-       }
-   }
+const  UserItem =({user:{login, avatar_url, html_url}})=> {
    
-    render() {
 
-         const { login, avatar_url, html_url } = this.state;
+        //const { login, avatar_url, html_url } = props.user;
         return (
             <div className="card text-center">
                 <img
@@ -30,7 +21,11 @@ export class UserItem extends Component {
                  
             </div>
         )
-    }
+    
 }
 
-export default UserItem
+UserItem.propTypes ={
+    user:PropTypes.object.isRequired,
+}
+
+export default UserItem;
